@@ -3,6 +3,16 @@
 
 class blogcontroller extends controller
 {
+    function __construct()
+    {
+        if(empty($_SESSION['Session_Name'])){
+            $_SESSION['Error_Login'] = "Bạn chưa đăng nhập ";
+            header("Location: /phpmvc");
+            exit();
+        }
+
+    }
+
     public function index(){
         $bloges = $this->model("blog");
         $data = $bloges->All();
