@@ -20,19 +20,77 @@
         <div class="row">
             <?php include "layout/menuleft.php" ?>
             <!--/.span3-->
-           <h1> code ve tao blog</h1>
+            <div class="span9">
+                <div class="content">
+                    <div class="module">
+                        <div class="module-head">
+                            <h1>Thêm bài viết</h1>
+                            <?php
+                            // hien thi thong bao thanh cong
+                            if(isset($_SESSION['Message_Success'])){
+                            ?>
+                            <div class="alert alert-success">
+                                <?php echo $_SESSION['Message_Success'];  unset($_SESSION['Message_Success'])?>
+                                <?php
+                                }
+                                ?>
+                            </div>
+                            <?php
+                            // hien thi thong bao loi
+                            if(isset($_SESSION['Message_Errors'])){
+                                ?>
+                                <div class="alert alert-error">
+                                    <?php echo $_SESSION['Message_Errors']; unset($_SESSION['Message_Errors']) ?>
+                                </div>
+                                <?php
+                            }
+                            ?>
+                        </div>
+                        <div class="module-body table">
+                           <div class="content">
+                               <form class="form-horizontal row-fluid">
+                                   <div class="control-group">
+                                       <label class="control-label" for="basicinput">Tiêu đề bài viết</label>
+                                       <div class="controls">
+                                           <input type="text" id="basicinput" placeholder="Type something here..." class="span8">
+                                       </div>
+                                   </div>
+
+                                   <div class="control-group">
+                                       <label class="control-label" for="basicinput">Hình ảnh</label>
+                                       <div class="controls">
+                                           <input data-title="A tooltip for the input" type="file"  class="span8 tip">
+                                       </div>
+                                   </div>
+                                   <div class="control-group">
+                                       <label class="control-label" for="basicinput">Nội dung</label>
+                                       <div class="controls">
+                                           <textarea class="span8" rows="5"></textarea>
+                                       </div>
+                                   </div>
+
+                                   <div class="control-group">
+                                       <div class="controls">
+                                           <button type="submit" class="btn">Submit Form</button>
+                                       </div>
+                                   </div>
+                               </form>
+                           </div>
+                        </div>
+
+                    </div>
+                    <!--/.module-->
+                </div>
+                <!--/.content-->
+            </div>
             <!--/.span9-->
         </div>
     </div>
     <!--/.container-->
 </div>
 <!--/.wrapper-->
-<script src="../mvc/public/scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
-<script src="../mvc/public/scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
-<script src="../mvc/public/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="../mvc/public/scripts/flot/jquery.flot.js" type="text/javascript"></script>
-<script src="../mvc/public/scripts/flot/jquery.flot.resize.js" type="text/javascript"></script>
-<script src="../mvc/public/scripts/datatables/jquery.dataTables.js" type="text/javascript"></script>
-<script src="../mvc/public/scripts/common.js" type="text/javascript"></script>
+<?php
+    include 'layout/script.php';
+?>
 </body>
 </html>
