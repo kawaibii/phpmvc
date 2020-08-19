@@ -34,7 +34,7 @@
                             <?php
                                 }
                             ?>
-
+                            </div>
                             <?php
                             // hien thi thong bao loi
                             if(isset($_SESSION['Message_Errors'])){
@@ -45,9 +45,10 @@
                                 <?php
                             }
                             ?>
-
                         </div>
-                            <button style="margin: auto" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Thêm vài viết</button>
+                        <a href="/phpmvc/Blogcontroller/create">
+                            <button style="margin: auto" type="button" class="btn btn-info">Thêm vài viết</button>
+                        </a>
                         <div class="module-body table">
                             <table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	 display"
                                    width="100%">
@@ -103,36 +104,12 @@
             <!--/.span9-->
         </div>
     </div>
-
-     <!-- Modal them sua-->
-        <div class="modal fade" id="myModal" role="dialog">
-            <div class="modal-dialog">
-
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Modal Header</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>Some text in the modal.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    <!--/.container-->
+     <!-- Modal them them-->
 </div>
+    <!--/.container-->
 <!--/.wrapper-->
-<script src="../mvc/public/scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
-<script src="../mvc/public/scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
-<script src="../mvc/public/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="../mvc/public/scripts/flot/jquery.flot.js" type="text/javascript"></script>
-<script src="../mvc/public/scripts/flot/jquery.flot.resize.js" type="text/javascript"></script>
-<script src="../mvc/public/scripts/datatables/jquery.dataTables.js" type="text/javascript"></script>
-<script src="../mvc/public/scripts/common.js" type="text/javascript"></script>
+<?php
+include 'layout/script.php';
+?>
 </body>
 </html>

@@ -18,10 +18,8 @@ class blogcontroller extends controller
         $data = $bloges->All();
         $this->view("master", $data);
     }
-    public function edit($id){
-        echo " day la sua ". $id;
-        $blog = $this->model("blog");
-        echo $blog->Update("123",1);
+    public function edit(){
+        $this->view("update",[]);
     }
 
     public function update(){
@@ -48,6 +46,7 @@ class blogcontroller extends controller
     }
 
     public function create(){
+
         $title      = $_POST['title'];
         $content   = $_POST['content'];
         $user_id  = $_POST['user_id'];
@@ -89,12 +88,10 @@ class blogcontroller extends controller
            }
 
 
+        $this->view("create",[]);
 
     }
 
-    public function store(){
-
-    }
     public function show($id){
 
 
