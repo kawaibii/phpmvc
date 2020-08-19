@@ -2,7 +2,7 @@
 class createDB {
     function __construct()
     {
-        $connect = new mysqli("localhost","root","root","phpmvc");
+        $connect = new mysqli("localhost","root","","phpmvc");
 
             $sql1 = "CREATE TABLE user(
                 id INT(6) AUTO_INCREMENT PRIMARY KEY,

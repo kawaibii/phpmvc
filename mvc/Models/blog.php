@@ -19,11 +19,21 @@ class blog extends connectDB
         return $data;
     }
 
-    public function Update($data, $id){
-        return "cap nhat thanh cong".$data.  " " . $id;
+    public function Update($title, $content, $user_id, $link, $id){
+        $sql = " UPDATE blog
+                SET title = '$title', content = '$content', user_id = 'user_id', link = '$link'
+                WHERE id = '$id";
+        $check = mysqli_query($this->connect, $sql);
+        return $check;
     }
     public function Delete($id, $user_id){
         $sql = "DELETE FROM blog WHERE id = '$id' AND user_id = '$user_id'";
+        $check = mysqli_query($this->connect, $sql);
+        return $check;
+    }
+    public function Insert( $title, $content, $user_id, $link){
+        $sql = "INSERT INTO blog (title, content, user_id, link)
+                VALUES ('$title', '$content', '$user_id','$link');";
         $check = mysqli_query($this->connect, $sql);
         return $check;
     }

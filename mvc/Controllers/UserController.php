@@ -26,4 +26,5 @@ class UserController extends controller{
         session_destroy();
         header("Location:/phpmvc");
     }
+    
 }

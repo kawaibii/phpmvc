@@ -24,11 +24,71 @@ class blogcontroller extends controller
         echo $blog->Update("123",1);
     }
 
-    public function update($id){
+    public function update(){
+        $id = $_POST['id'];
+        $title      = $_POST['title'];
+        $content   = $_POST['content'];
+        $user_id  = $_POST['user_id'];
+        $linkfile = $_POST['linkfile']
+        $link = "";
+        if (isset($_FILES['fileUpload'])) {
+            if ($_FILES['fileUpload']['error'] > 0)
+                echo "Lỗi upload";
+            else {
+                $time = time();
+                unlink($linkfile);
+                move_uploaded_file($_FILES['fileUpload']['tmp_name'], 'upload/' . $_FILES['fileUpload']['name'].$time);
+                $link = "upload/" . $_FILES['fileUpload']['name'].$time;
 
+            }
+        }else $link = $linkfile
+
+        $blog      = $this->model("user");
+        $blog->update($title,$content,$user_id,$link,$id);
     }
 
     public function create(){
+        $title      = $_POST['title'];
+        $content   = $_POST['content'];
+        $user_id  = $_POST['user_id'];
+        if (isset($_FILES['fileUpload'])) {
+            if ($_FILES['fileUpload']['error'] > 0)
+                echo "Lỗi upload";
+            else {
+                $time = time();
+                move_uploaded_file($_FILES['fileUpload']['tmp_name'], 'upload/' . $_FILES['fileUpload']['name'].$time);
+                $link = "upload/" . $_FILES['fileUpload']['name'].$time;
+
+            }
+        }
+
+        $blog      = $this->model("user");
+        $blog->Insert($title,$content,$user_id,$link);
+
+           $error = array(
+            'success'=> '',
+            'error' => '',
+            'title' => '',
+            'content' => '',
+            'user_id'=>'',
+            'fileUpload'=>''
+
+        );
+         
+           if (!isset($_POST['title'])) {
+               $error['title'] ="Title không được bỏ trống";
+           }
+           if (!isset($_POST['content'])) {
+               $error['content'] ="content không được bỏ trống";
+           }
+           if (!isset($_POST['user_id'])) {
+               $error['user_id'] ="user_id không được bỏ trống";
+           }
+           if (!isset($_POST['fileUpload'])) {
+               $error['fileUpload'] ="fileUpload không được bỏ trống";
+           }
+
+
 
     }
 
@@ -36,6 +96,7 @@ class blogcontroller extends controller
 
     }
     public function show($id){
+
 
     }
 
