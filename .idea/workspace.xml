@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3843927b-20e1-4b99-b2fd-3891981b0e7d" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="ProjectId" id="1g4LNvS7NkKuWc76L5JEVfdzchq" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3843927b-20e1-4b99-b2fd-3891981b0e7d" name="Default Changelist" comment="" />
+      <created>1597368881933</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1597368881933</updated>
+      <workItem from="1597368883033" duration="2507000" />
+      <workItem from="1597373588799" duration="6414000" />
+      <workItem from="1597668316127" duration="1033000" />
+      <workItem from="1597669735176" duration="2620000" />
+      <workItem from="1597722442264" duration="6355000" />
+      <workItem from="1597759612426" duration="5594000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="429" y="262" width="731" height="400" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1597374007928">
+      <screen x="0" y="27" width="1600" height="873" />
+    </state>
+    <state x="429" y="262" width="731" height="400" key="#com.intellij.fileTypes.FileTypeChooser/0.27.1600.873@0.27.1600.873" timestamp="1597374007928" />
+    <state x="577" y="27" width="424" height="871" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1597670000897">
+      <screen x="0" y="27" width="1600" height="873" />
+    </state>
+    <state x="577" y="27" width="424" height="871" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.27.1600.873@0.27.1600.873" timestamp="1597670000897" />
+    <state x="550" y="221" key="FileChooserDialogImpl" timestamp="1597670552726">
+      <screen x="0" y="27" width="1600" height="873" />
+    </state>
+    <state x="550" y="221" key="FileChooserDialogImpl/0.27.1600.873@0.27.1600.873" timestamp="1597670552726" />
+    <state x="553" y="387" width="384" height="151" key="NewPhpFileDialog" timestamp="1597377977432">
+      <screen x="0" y="27" width="1600" height="873" />
+    </state>
+    <state x="553" y="387" width="384" height="151" key="NewPhpFileDialog/0.27.1600.873@0.27.1600.873" timestamp="1597377977432" />
+  </component>
+</project>

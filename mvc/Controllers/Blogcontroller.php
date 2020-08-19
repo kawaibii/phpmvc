@@ -1,0 +1,57 @@
+<?php
+
+
+class blogcontroller extends controller
+{
+    public function index(){
+        $bloges = $this->model("blog");
+        $data = $bloges->All();
+        $this->view("master", $data);
+    }
+    public function edit($id){
+        echo " day la sua ". $id;
+        $blog = $this->model("blog");
+        echo $blog->Update("123",1);
+    }
+
+    public function update($id){
+
+    }
+
+    public function create(){
+
+    }
+
+    public function store(){
+
+    }
+    public function show($id){
+
+    }
+
+    public function destroy($id){
+        $blog           = $this->model("blog");
+        $user_id        = $_SESSION['Session_ID'];
+        $blogs          = $blog->FindByID($id);
+        $image          = "";
+        $check_blog     =""; // ham de kiem tra blog co ton tai hay khong
+        while ($row = mysqli_fetch_object($blogs)){
+            $image  = $row->link;
+            $checks = $row->title;
+        }
+
+        if( !empty( $check_blog ) ){
+            $check      = $blog->Delete($id, $user_id);
+            if(file_exists("./mvc/public/images/" . $image)){
+                unlink("./mvc/public/images/" . $image);
+            }
+            $_SESSION['Message_Success'] = "Bạn đã xóa thành công";
+            header("Location: /phpmvc/Blogcontroller/index");
+            exit();
+        }
+
+        $_SESSION['Message_Errors'] = "bài viết không có hoặc bạn không phải chủ bài viết";
+        header('Location: /phpmvc/Blogcontroller/index');
+        exit();
+    }
+}
