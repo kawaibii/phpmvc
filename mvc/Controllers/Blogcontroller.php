@@ -10,6 +10,14 @@ class blogcontroller extends controller
         //     header("Location: /phpmvc");
         //     exit();
         // }
+        if(empty($_SESSION['Session_Name'])){
+            $_SESSION['Error_Login'] = "Bạn chưa đăng nhập ";
+            header("Location: /phpmvc");
+            exit();
+        }
+        else{
+
+        }
 
     }
 
@@ -130,7 +138,9 @@ class blogcontroller extends controller
     }
     public function show($id){
 
-
+        $blogs  = $this->model("blog");
+        $data   = $blogs->FindByID($id);
+        $this->view("Detail",$data);
     }
 
     public function destroy($id){
