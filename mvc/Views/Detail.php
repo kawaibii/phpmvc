@@ -29,12 +29,12 @@
                         </div>
                         <div class="module-body table">
                             <div class="auth">
-                                <p class="name-auth"><?php echo $row->name; ?></p>
+                                <p class="name-auth" style="text-align: right; margin-right: 40px"> Tác giả : <?php echo $row->name; ?></p>
                             </div>
-                            <div class="image">
-                                <img width="500px" height="500px" src="/phpmvc/mvc/public/images/<?php echo $row->link; ?>" title="image bai viet">
+                            <div class="image center" style="margin: 20px; justify-content: center">
+                                <img width="500px" height="500px" style="display: block;margin-left: auto;margin-right: auto;" src="/phpmvc/mvc/public/images/<?php echo $row->link; ?>" title="image bai viet">
                             </div>
-                            <div class="content">
+                            <div class="content" style="margin-top: 40px; text-align: center">
                                 <?php echo $row->content; ?>
                             </div>
                         </div>

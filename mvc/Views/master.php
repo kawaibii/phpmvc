@@ -5,10 +5,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Edmin</title>
-        <link type="text/css" href="../mvc/public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link type="text/css" href="../mvc/public/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
-        <link type="text/css" href="../mvc/public/css/theme.css" rel="stylesheet">
-        <link type="text/css" href="../mvc/public/images/icons/css/font-awesome.css" rel="stylesheet">
+        <link type="text/css" href="/phpmvc/mvc/public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link type="text/css" href="/phpmvc/mvc/public/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link type="text/css" href="/phpmvc/mvc/public/css/theme.css" rel="stylesheet">
+        <link type="text/css" href="/phpmvc/mvc/public/images/icons/css/font-awesome.css" rel="stylesheet">
         <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600'
               rel='stylesheet'>
     </head>
@@ -24,7 +24,7 @@
                 <div class="content">
                     <div class="module">
                         <div class="module-head">
-                            <h3>DataTables</h3>
+                            <h3>Danh sách bài viết</h3>
                             <?php
                             // hien thi thong bao thanh cong
                                 if(isset($_SESSION['Message_Success'])){
@@ -81,7 +81,9 @@
                                         <?php echo $row->title; ?>
                                     </td>
                                     <td>
+
                                         <img src="../mvc/public/upload/<?php echo $row->link; ?>" >
+
 
                                     </td>
                                     <td class="center">
@@ -90,6 +92,10 @@
                                     <td class="center">
                                         <a href="/phpmvc/Blogcontroller/edit/<?php echo $row->id; ?>"><button class="btn btn-block">Sua</button></a>
                                         <a href="/phpmvc/Blogcontroller/destroy/<?php echo $row->id; ?>"><button class="btn btn-block">Xoa</button></a>
+<!-- =======
+                                        <a href="#"><button class="btn btn-block">Sua</button></a>
+                                        <a href="#"><button data-url="/phpmvc/Blogcontroller/destroy/<?php echo $row->id; ?>" onclick="show(this)" data-title="<?php echo $row->title;?>" class="btn btn-block">Xoa</button></a>
+>>>>>>> 02c3727bfe22c402b701ae5fc3fe8f2c561ccfc7 -->
                                     </td>
                                 </tr>
                                 <?php } ?>
@@ -111,5 +117,18 @@
 <?php
 include 'layout/script.php';
 ?>
+<script>
+    function show(a){
+        console.log(a);
+        let title   = a.getAttribute('data-title');
+        let url     = a.getAttribute('data-url');
+        let check   = confirm("Bạn có muốn xóa bài viết : " + title);
+        if(check == true ){
+            window.location.replace(url);
+        }else {
+            return false;
+        }
+    }
+</script>
 </body>
 </html>
