@@ -30,7 +30,7 @@ class blogcontroller extends controller
 
 
     public function create(){
- 
+
 
             $this->view("create",[]);
 
@@ -60,9 +60,9 @@ class blogcontroller extends controller
         'fileUpload'=>''
 
         );
-         
+
         $pattern = "/^[A-Za-z0-9_]/";
-        
+
         if ($content=="") {
             $error['content'] = "content không được bỏ trống ";
             $error['error'] = "1";
@@ -91,23 +91,23 @@ class blogcontroller extends controller
                 $error['error'] = "1";
 
             }
-        } 
+        }
         if ($error['error']!="1") {
             $time = time();
-                $direct = $_SERVER['DOCUMENT_ROOT']."/phpmvc/mvc/public/upload/";
+                $direct = $_SERVER['DOCUMENT_ROOT']."/phpmvc/mvc/public/images/";
                 move_uploaded_file($_FILES['fileUpload']['tmp_name'],$direct . $_FILES['fileUpload']['name'].$time);
                 $link = $_FILES['fileUpload']['name'].$time;
 
-            $ins = $blog->Insert($title,$content,$user_id,$link); 
+            $ins = $blog->Insert($title,$content,$user_id,$link);
 
         }
-         
-           
+
+
         die (json_encode($error));
 
     }
 
- 
+
     public function editblog ()
     {
         $blog      = $this->model("blog");
@@ -129,9 +129,9 @@ class blogcontroller extends controller
         'id'=>$id
 
         );
-         
+
         $pattern = "/^[A-Za-z0-9_]/";
-        
+
         if ($content=="") {
             $error['content'] = "content không được bỏ trống ";
             $error['error'] = "1";
@@ -150,7 +150,7 @@ class blogcontroller extends controller
         //     $error['error'] = "1";
         // }
         if(isset($_FILES['fileUpload'])){
-          
+
             $filePath = $_FILES['fileUpload']['name'];
             $filetype = pathinfo($filePath, PATHINFO_EXTENSION);
                if (!in_array($filetype,$allowfiletype )) {
@@ -159,24 +159,24 @@ class blogcontroller extends controller
 
 
             }
-        } 
+        }
         if ($error['error']!="1") {
             if (isset($_FILES['fileUpload'])) {
-                
+
                 $time = time();
-                $direct = $_SERVER['DOCUMENT_ROOT']."/phpmvc/mvc/public/upload/";
+                $direct = $_SERVER['DOCUMENT_ROOT']."/phpmvc/mvc/public/images/";
                  unlink($direct.$link);
                 move_uploaded_file($_FILES['fileUpload']['tmp_name'],$direct . $_FILES['fileUpload']['name'].$time);
                 $link2 = $_FILES['fileUpload']['name'].$time;
-                
-            }
-               
 
-           $ins = $blog->Update($title,$content,$user_id,$link2,$id); 
+            }
+
+
+           $ins = $blog->Update($title,$content,$user_id,$link2,$id);
 
         }
 
-           
+
         die (json_encode($error));
     }
 

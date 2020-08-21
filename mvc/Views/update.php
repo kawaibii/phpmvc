@@ -52,10 +52,10 @@
                            <div class="content">
                                <div class="col-sm-4">
                                 <h1> <div id="success" class="alert-success"></div></h1>
-                               
+
                               </div>
-                                                     
-  
+
+
                                <form class="form-horizontal row-fluid"  method="POST" enctype="multipart/form-data" action="http://localhost/phpmvc/Blogcontroller/editblog">
                                   <input type="hidden" id="id" placeholder="Type something here..." class="span8" name="id" value="<?php echo $data['id'] ?>">
                                    <div class="control-group">
@@ -69,7 +69,7 @@
                                    <div class="control-group">
                                        <label class="control-label" for="basicinput">Hình ảnh</label>
                                        <div class="controls">
-                                          <img src="/phpmvc/mvc/public/upload/<?php echo $data['link'] ?>">
+                                          <img src="/phpmvc/mvc/public/images/<?php echo $data['link'] ?>">
                                           <input type="hidden" id="link" placeholder="Type something here..." class="span8" name="link" value="<?php echo $data['link'] ?>">
                                            <input data-title="A tooltip for the input" type="file"  class="span8 tip" name="fileUpload" id="fileUpload">
                                             <div id="showerrorfileUbload" class="alert-error"></div>
@@ -119,7 +119,7 @@
               form.append("id", $('#id').val());
               form.append("link", $('#link').val());
                   // console.log(form);
-              
+
                  $('#showerror').html('');
                   $.ajax({
             type: "POST",
@@ -142,14 +142,14 @@
             var errortitle = '';
             var errorfileUpload = '';
             var errorcontent = '';
-            
+
             // Lấy thông tin lỗi username
             // console.log($.trim(data.fileUpload));
             if ($.trim(data.title) != ''){
                 errortitle += data.title ;
-             
+
             }
- 
+
             // Lấy thông tin lỗi email
             if ($.trim(data.content) != ''){
                 errorcontent += data.content;
@@ -159,7 +159,7 @@
                 errorfileUpload += data.fileUpload;
                  // console.log(html);
             }
- 
+
             // Cuối cùng kiểm tra xem có lỗi không
             // Nếu có thì xuất hiện lỗi
             if ($.trim(data.error)!= ''){
@@ -176,7 +176,7 @@
             }
          }
     });
- 
+
                 return false;
             });
         </script>
