@@ -2,13 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3843927b-20e1-4b99-b2fd-3891981b0e7d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/mvc/Views/layout/script.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvc/.htaccess" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvc/Views/Detail.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mvc/Controllers/Blogcontroller.php" beforeDir="false" afterPath="$PROJECT_DIR$/mvc/Controllers/Blogcontroller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvc/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/mvc/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvc/Controllers/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/mvc/Controllers/home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvc/Models/blog.php" beforeDir="false" afterPath="$PROJECT_DIR$/mvc/Models/blog.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mvc/Views/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/mvc/Views/create.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvc/Views/master.php" beforeDir="false" afterPath="$PROJECT_DIR$/mvc/Views/master.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvc/Views/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/mvc/Views/update.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvc/Views/layout/Menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/mvc/Views/layout/Menu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvc/Views/layout/menuleft.php" beforeDir="false" afterPath="$PROJECT_DIR$/mvc/Views/layout/menuleft.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvc/Views/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/mvc/Views/login.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +51,7 @@
       <workItem from="1597722442264" duration="6355000" />
       <workItem from="1597759612426" duration="5594000" />
       <workItem from="1597798728621" duration="2174000" />
-      <workItem from="1597810822501" duration="5969000" />
+      <workItem from="1597810822501" duration="13545000" />
     </task>
     <servers />
   </component>
@@ -67,9 +71,9 @@
       <screen x="0" y="27" width="1600" height="873" />
     </state>
     <state x="550" y="221" key="FileChooserDialogImpl/0.27.1600.873@0.27.1600.873" timestamp="1597800220728" />
-    <state x="553" y="387" width="384" height="151" key="NewPhpFileDialog" timestamp="1597811834498">
+    <state x="553" y="387" width="374" height="151" key="NewPhpFileDialog" timestamp="1597826000651">
       <screen x="0" y="27" width="1600" height="873" />
     </state>
-    <state x="553" y="387" width="384" height="151" key="NewPhpFileDialog/0.27.1600.873@0.27.1600.873" timestamp="1597811834498" />
+    <state x="553" y="387" width="374" height="151" key="NewPhpFileDialog/0.27.1600.873@0.27.1600.873" timestamp="1597826000651" />
   </component>
 </project>

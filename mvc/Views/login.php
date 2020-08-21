@@ -19,10 +19,13 @@
                 <?php
                     if(isset($_SESSION['Error_Login'])){
                         ?>
-                        <div class="alert alert-error"> <?php echo $_SESSION['Error_Login'] ?></div>
+                        <div class="alert alert-error">
+                            <?php   echo $_SESSION['Error_Login'];
+                            unset($_SESSION['Error_Login']) ?>
+                        </div>
                    <?php
                     }
-                    session_unset();
+
                     ?>
 
                 <form class="form-vertical" method="post" action="UserController/login">
@@ -60,7 +63,7 @@
                             <div class="controls clearfix">
                                 <button type="submit" class="btn btn-primary pull-right">Login</button>
                                 <label class="checkbox">
-                                    <input type="checkbox"> Remember me
+                                    <input type="checkbox" name ="remember"> Remember me
                                 </label>
                             </div>
                         </div>
