@@ -33,4 +33,5 @@ class UserController extends controller{
         header("Location:/phpmvc");
        // echo $_COOKIE['CHECK_LOGIN'];
     }
+    
 }

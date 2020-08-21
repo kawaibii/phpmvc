@@ -3,7 +3,7 @@ class connectDB {
     public $connect;
     public $server      = "localhost";
     public $username    = "root";
-    public $password    = "root";
+    public $password    = "";
     public $database    = "phpmvc";
     function __construct()
     {
