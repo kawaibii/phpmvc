@@ -5,10 +5,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Edmin</title>
-        <link type="text/css" href="/phpmvc/mvc/public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link type="text/css" href="/phpmvc/mvc/public/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
-        <link type="text/css" href="/phpmvc/mvc/public/css/theme.css" rel="stylesheet">
-        <link type="text/css" href="/phpmvc/mvc/public/images/icons/css/font-awesome.css" rel="stylesheet">
+        <link type="text/css" href="../mvc/public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link type="text/css" href="../mvc/public/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link type="text/css" href="../mvc/public/css/theme.css" rel="stylesheet">
+        <link type="text/css" href="../mvc/public/images/icons/css/font-awesome.css" rel="stylesheet">
         <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600'
               rel='stylesheet'>
         <script type="text/javascript" src="../mvc/public/ckeditor/ckeditor.js"></script>
@@ -50,12 +50,18 @@
                         <div class="module-body table">
 
                            <div class="content">
-                            <div id="showerror"></div>
+                               <div class="col-sm-4">
+                                <h1> <div id="success" class="alert-success"></div></h1>
+                               
+                              </div>
+                                                     
+
                                <form class="form-horizontal row-fluid"  method="POST" enctype="multipart/form-data" action="http://localhost/phpmvc/Blogcontroller/createblog">
                                    <div class="control-group">
                                        <label class="control-label" for="basicinput">Tiêu đề bài viết</label>
                                        <div class="controls">
                                            <input type="text" id="title" placeholder="Type something here..." class="span8" name="title" >
+                                            <div id="showerrortitle" class="alert-error"></div>
                                        </div>
                                    </div>
 
@@ -63,6 +69,7 @@
                                        <label class="control-label" for="basicinput">Hình ảnh</label>
                                        <div class="controls">
                                            <input data-title="A tooltip for the input" type="file"  class="span8 tip" name="fileUpload" id="fileUpload">
+                                            <div id="showerrorfileUbload" class="alert-error"></div>
                                        </div>
                                    </div>
                                    <div class="control-group">
@@ -70,6 +77,7 @@
                                        <div class="controls">
                                            <!-- <textarea class="span8" rows="5" name="content" id="content"></textarea> -->
                                            <textarea name="content" id="editor1" rows="10" cols="80" ></textarea>
+                                            <div id="showerrorcontent" class="alert-error"></div>
                                        </div>
                                    </div>
 
@@ -97,7 +105,6 @@
     include 'layout/script.php';
 ?>
 <script>    CKEDITOR.replace( 'editor1' );</script>
-  <!-- <div id="showerror"></div> -->
 
         <script language="javascript">
             $('form').submit(function (){
@@ -126,30 +133,41 @@
             //     alert('Có vẻ như bạn đang hack website của tôi');
             //     return false;
             // }
-            console.log(result);
-            var html = '';
+            data = JSON.parse(result);
+            var errortitle = '';
+            var errorfileUpload = '';
+            var errorcontent = '';
             
             // Lấy thông tin lỗi username
-            if ($.trim(result.title) != ''){
-                html += result.title + '<br/>';
+            // console.log($.trim(data.fileUpload));
+            if ($.trim(data.title) != ''){
+                errortitle += data.title ;
+             
             }
  
             // Lấy thông tin lỗi email
-            if ($.trim(result.content) != ''){
-                html += result.content;
+            if ($.trim(data.content) != ''){
+                errorcontent += data.content;
+                  // $('#showerror').append(html);
             }
-             if ($.trim(result.fileUpload) != ''){
-                html += result.fileUpload;
+             if ($.trim(data.fileUpload) != ''){
+                errorfileUpload += data.fileUpload;
+                 // console.log(html);
             }
  
             // Cuối cùng kiểm tra xem có lỗi không
             // Nếu có thì xuất hiện lỗi
-            if (html != ''){
-                $('#showerror').append(html);
+            if ($.trim(data.error)!= ''){
+                $('#showerrortitle').html(errortitle);
+                $('#showerrorfileUbload').html(errorfileUpload);
+                $('#showerrorcontent').html(errorcontent);
             }
             else {
-                // Thành công
-                $('#showerror').append('Thêm thành công');
+                $('#showerrortitle').html('');
+                $('#showerrorfileUbload').html('');
+                $('#showerrorcontent').html('');
+                $('#success').html('');
+                $('#success').html('Thêm thành công');
             }
         }
     });

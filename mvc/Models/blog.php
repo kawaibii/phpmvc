@@ -11,12 +11,19 @@ class blog extends connectDB
         return $data;
     }
     public function FindByID($id){
-        $sql = "SELECT b.id, b.title, b.content, b.link, u.name FROM blog AS b
-                INNER JOIN user AS u ON u.id = b.user_id
-                WHERE b.id = '$id'
+        $sql = "SELECT * FROM blog 
+                WHERE id = '$id'
         ";
         $data = mysqli_query($this->connect,$sql);
-        return $data;
+        $blog= array();
+        while ($row = mysqli_fetch_object($data)){
+        $blog['id']     = $row->id;
+        $blog['title']  = $row->title;
+        $blog['user_id'] = $row->user_id;
+        $blog['content']   = $row->content;
+        $blog['link'] = $row->link;
+         }
+        return $blog;
     }
     public function FindByTitle($title)
     {
@@ -27,14 +34,14 @@ class blog extends connectDB
         $blog['id']     = $row->id;
         $blog['title']  = $row->title;
         $blog['content']   = $row->content;
+        // $blog['user_id'] = $row->user_id;
+        $blog['link'] = $row->link;
         }
         return $blog;
     }
 
     public function Update($title, $content, $user_id, $link, $id){
-        $sql = " UPDATE blog
-                SET title = '$title', content = '$content', user_id = 'user_id', link = '$link'
-                WHERE id = '$id";
+        $sql = "UPDATE blog SET title='$title', content='$content', user_id='$user_id', link='$link' WHERE id='$id'";
         $check = mysqli_query($this->connect, $sql);
         return $check;
     }

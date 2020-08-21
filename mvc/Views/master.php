@@ -81,14 +81,14 @@
                                         <?php echo $row->title; ?>
                                     </td>
                                     <td>
-                                        <img src="../mvc/public/images/<?php echo $row->link; ?>">
+                                        <img src="../mvc/public/upload/<?php echo $row->link; ?>" >
 
                                     </td>
                                     <td class="center">
                                         <?php echo $row->name; ?>
                                     </td>
                                     <td class="center">
-                                        <a href="#"><button class="btn btn-block">Sua</button></a>
+                                        <a href="/phpmvc/Blogcontroller/edit/<?php echo $row->id; ?>"><button class="btn btn-block">Sua</button></a>
                                         <a href="/phpmvc/Blogcontroller/destroy/<?php echo $row->id; ?>"><button class="btn btn-block">Xoa</button></a>
                                     </td>
                                 </tr>
