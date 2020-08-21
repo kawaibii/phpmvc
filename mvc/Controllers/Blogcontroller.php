@@ -20,7 +20,7 @@ class blogcontroller extends controller
         $bloges = $this->model("blog");
         $data = $bloges->All();
         $this->view("master", $data);
-
+    }
     public function edit($id){
             $blog      = $this->model("blog");
            $data      = $blog->FindByID($id);
@@ -35,11 +35,8 @@ class blogcontroller extends controller
             $this->view("create",[]);
 
 
-
-    public function edit()
-    {
-        $this->view("update", []);
     }
+
 
     public function update($id)
     {
@@ -108,13 +105,9 @@ class blogcontroller extends controller
            
         die (json_encode($error));
 
-
-
-    public function create()
-    {
-        $this->view("create", []);
-
     }
+
+ 
     public function editblog ()
     {
         $blog      = $this->model("blog");
@@ -195,14 +188,8 @@ class blogcontroller extends controller
         $blogs  = $this->model("blog");
         $data   = $blogs->FindByID($id);
         $this->view("Detail",$data);
-
-    public function show($id)
-    {
-        $blogs = $this->model("blog");
-        $data = $blogs->FindByID($id);
-        $this->view("Detail", $data);
-
     }
+
 
     public function destroy($id)
     {
