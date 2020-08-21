@@ -11,6 +11,7 @@
         <link type="text/css" href="../mvc/public/images/icons/css/font-awesome.css" rel="stylesheet">
         <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600'
               rel='stylesheet'>
+        <script type="text/javascript" src="../mvc/public/ckeditor/ckeditor.js"></script>
     </head>
 <body>
 <?php include "layout/Menu.php"?>
@@ -47,25 +48,28 @@
                             ?>
                         </div>
                         <div class="module-body table">
+
                            <div class="content">
-                               <form class="form-horizontal row-fluid">
+                            <div id="showerror"></div>
+                               <form class="form-horizontal row-fluid"  method="POST" enctype="multipart/form-data" action="http://localhost/phpmvc/Blogcontroller/createblog">
                                    <div class="control-group">
                                        <label class="control-label" for="basicinput">Tiêu đề bài viết</label>
                                        <div class="controls">
-                                           <input type="text" id="basicinput" placeholder="Type something here..." class="span8">
+                                           <input type="text" id="title" placeholder="Type something here..." class="span8" name="title" >
                                        </div>
                                    </div>
 
                                    <div class="control-group">
                                        <label class="control-label" for="basicinput">Hình ảnh</label>
                                        <div class="controls">
-                                           <input data-title="A tooltip for the input" type="file"  class="span8 tip">
+                                           <input data-title="A tooltip for the input" type="file"  class="span8 tip" name="fileUpload" id="fileUpload">
                                        </div>
                                    </div>
                                    <div class="control-group">
                                        <label class="control-label" for="basicinput">Nội dung</label>
                                        <div class="controls">
-                                           <textarea class="span8" rows="5"></textarea>
+                                           <!-- <textarea class="span8" rows="5" name="content" id="content"></textarea> -->
+                                           <textarea name="content" id="editor1" rows="10" cols="80" ></textarea>
                                        </div>
                                    </div>
 
@@ -92,5 +96,66 @@
 <?php
     include 'layout/script.php';
 ?>
+<script>    CKEDITOR.replace( 'editor1' );</script>
+  <!-- <div id="showerror"></div> -->
+
+        <script language="javascript">
+            $('form').submit(function (){
+              let img = $(".fileUpload");
+               var form = new FormData();
+               form.append("fileUpload", $('input[type=file]')[0].files[0]);
+              form.append("title", $('#title').val());
+              form.append("content", CKEDITOR.instances.editor1.getData());
+  
+                  // console.log(form);
+       
+                 $('#showerror').html('');
+                  $.ajax({
+            type: "POST",
+            url: "http://localhost/phpmvc/Blogcontroller/createblog",
+            processData: false,
+            mimeType: "multipart/form-data",
+            contentType: false,
+            data: form,
+        success : function (result)
+        {
+            // Kiểm tra xem thông tin gửi lên có bị lỗi hay không
+            // Đây là kết quả trả về từ file do_validate.php
+            // if (!result.hasOwnProperty('error') || result['error'] != 'success')
+            // {
+            //     alert('Có vẻ như bạn đang hack website của tôi');
+            //     return false;
+            // }
+            console.log(result);
+            var html = '';
+            
+            // Lấy thông tin lỗi username
+            if ($.trim(result.title) != ''){
+                html += result.title + '<br/>';
+            }
+ 
+            // Lấy thông tin lỗi email
+            if ($.trim(result.content) != ''){
+                html += result.content;
+            }
+             if ($.trim(result.fileUpload) != ''){
+                html += result.fileUpload;
+            }
+ 
+            // Cuối cùng kiểm tra xem có lỗi không
+            // Nếu có thì xuất hiện lỗi
+            if (html != ''){
+                $('#showerror').append(html);
+            }
+            else {
+                // Thành công
+                $('#showerror').append('Thêm thành công');
+            }
+        }
+    });
+ 
+                return false;
+            });
+        </script>
 </body>
 </html>

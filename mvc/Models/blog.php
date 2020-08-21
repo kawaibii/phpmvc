@@ -18,6 +18,18 @@ class blog extends connectDB
         $data = mysqli_query($this->connect,$sql);
         return $data;
     }
+    public function FindByTitle($title)
+    {
+         $sql = "SELECT * FROM blog WHERE title='$title'";
+        $data = mysqli_query($this->connect, $sql);
+        $blog= array();
+        while ($row = mysqli_fetch_object($data)){
+        $blog['id']     = $row->id;
+        $blog['title']  = $row->title;
+        $blog['content']   = $row->content;
+        }
+        return $blog;
+    }
 
     public function Update($title, $content, $user_id, $link, $id){
         $sql = " UPDATE blog
