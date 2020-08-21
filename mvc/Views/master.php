@@ -81,15 +81,21 @@
                                         <?php echo $row->title; ?>
                                     </td>
                                     <td>
-                                        <img src="/phpmvc/mvc/public/images/<?php echo $row->link; ?>">
+
+                                        <img src="../mvc/public/upload/<?php echo $row->link; ?>" >
+
 
                                     </td>
                                     <td class="center">
                                         <?php echo $row->name; ?>
                                     </td>
                                     <td class="center">
+                                        <a href="/phpmvc/Blogcontroller/edit/<?php echo $row->id; ?>"><button class="btn btn-block">Sua</button></a>
+                                        <a href="/phpmvc/Blogcontroller/destroy/<?php echo $row->id; ?>"><button class="btn btn-block">Xoa</button></a>
+<!-- =======
                                         <a href="#"><button class="btn btn-block">Sua</button></a>
                                         <a href="#"><button data-url="/phpmvc/Blogcontroller/destroy/<?php echo $row->id; ?>" onclick="show(this)" data-title="<?php echo $row->title;?>" class="btn btn-block">Xoa</button></a>
+>>>>>>> 02c3727bfe22c402b701ae5fc3fe8f2c561ccfc7 -->
                                     </td>
                                 </tr>
                                 <?php } ?>
