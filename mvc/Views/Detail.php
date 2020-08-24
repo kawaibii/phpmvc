@@ -20,22 +20,21 @@
         <div class="row">
             <?php include "layout/menuleft.php" ?>
             <!--/.span3-->
-            <?php while ($row = mysqli_fetch_object($data)){ ?>
             <div class="span9">
                 <div class="content">
                     <div class="module">
                         <div class="module-head">
-                            <h1 style="text-align: center; color: #0e90d2"><?php echo $row->title; ?></h1>
+                            <h1 style="text-align: center; color: #0e90d2"><?php echo $data['title']; ?></h1>
                         </div>
                         <div class="module-body table">
                             <div class="auth">
-                                <p class="name-auth" style="text-align: right; margin-right: 40px"> Tác giả : <?php echo $row->name; ?></p>
+                                <p class="name-auth" style="text-align: right; margin-right: 40px"> Tác giả : <?php echo $data['name']; ?></p>
                             </div>
                             <div class="image center" style="margin: 20px; justify-content: center">
-                                <img width="500px" height="500px" style="display: block;margin-left: auto;margin-right: auto;" src="/phpmvc/mvc/public/images/<?php echo $row->link; ?>" title="image bai viet">
+                                <img width="500px" height="500px" style="display: block;margin-left: auto;margin-right: auto;" src="/phpmvc/mvc/public/images/<?php echo $data['link']; ?>" title="image bai viet">
                             </div>
                             <div class="content" style="margin-top: 40px; text-align: center">
-                                <?php echo $row->content; ?>
+                                <?php echo $data['content']; ?>
                             </div>
                         </div>
 
@@ -44,7 +43,6 @@
                 </div>
                 <!--/.content-->
             </div>
-            <?php } ?>
             <!--/.span9-->
         </div>
     </div>

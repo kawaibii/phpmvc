@@ -187,6 +187,7 @@ class blogcontroller extends controller
 
         $blogs  = $this->model("blog");
         $data   = $blogs->FindByID($id);
+        //var_dump($data) ;
         $this->view("Detail",$data);
     }
 
@@ -203,7 +204,7 @@ class blogcontroller extends controller
             $User_id    = $row->user_id;
             $checks     = $row->title;
         }
-//        echo $id." ".$user_id . " " . $image ." ". $checks . " ";
+//           echo $id." ".$user_id . " " . $image ." ". $checks . " ";
 //        if(!empty($checks)){
 //            echo "dung";
 //        }else{

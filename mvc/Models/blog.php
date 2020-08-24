@@ -11,17 +11,19 @@ class blog extends connectDB
         return $data;
     }
     public function FindByID($id){
-        $sql = "SELECT * FROM blog 
-                WHERE id = '$id'
+        $sql = "SELECT b.id,b.title,b.link, b.content, u.name FROM blog AS b
+                INNER JOIN user AS u ON u.id = b.user_id
+                WHERE b.id = '$id'
         ";
         $data = mysqli_query($this->connect,$sql);
         $blog= array();
+        //var_dump($data);
         while ($row = mysqli_fetch_object($data)){
         $blog['id']     = $row->id;
         $blog['title']  = $row->title;
-        $blog['user_id'] = $row->user_id;
         $blog['content']   = $row->content;
         $blog['link'] = $row->link;
+        $blog['name'] = $row->name;
          }
         return $blog;
     }

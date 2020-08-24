@@ -25,7 +25,7 @@
                 <div class="content">
                     <div class="module">
                         <div class="module-head">
-                            <h1>Thêm bài viết</h1>
+                            <h1>Sửa bài viết</h1>
                             <?php
                             // hien thi thong bao thanh cong
                             if(isset($_SESSION['Message_Success'])){
