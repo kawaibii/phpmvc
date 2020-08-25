@@ -27,6 +27,7 @@
                             <h3>Danh sách bài viết</h3>
                             <?php
                             // hien thi thong bao thanh cong
+                            //echo $_SESSION['Session_ID'];
                                 if(isset($_SESSION['Message_Success'])){
                             ?>
                             <div class="alert alert-success">

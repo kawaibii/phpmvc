@@ -2,13 +2,14 @@
 class createDB {
     function __construct()
     {
-        $connect = new mysqli("localhost","root","","phpmvc");
+        $connect = new mysqli("localhost","root","root","phpmvc");
 
             $sql1 = "CREATE TABLE user(
                 id INT(6) AUTO_INCREMENT PRIMARY KEY,
                 name VARCHAR(50) NOT NULL,
                 email VARCHAR(50) UNIQUE ,
-                password VARCHAR(50) NOT NULL
+                password VARCHAR(50) NOT NULL ,
+                remember_me VARCHAR (50)
 )";
             if($connect->query($sql1) == true){
                 echo "tao user thanh cong";

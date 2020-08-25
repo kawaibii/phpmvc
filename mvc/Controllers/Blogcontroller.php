@@ -187,33 +187,24 @@ class blogcontroller extends controller
 
         $blogs  = $this->model("blog");
         $data   = $blogs->FindByID($id);
-        //var_dump($data) ;
         $this->view("Detail",$data);
     }
 
 
     public function destroy($id)
     {
-        $blog       = $this->model("blog");
+        $blogs       = $this->model("blog");
         $user_id    = $_SESSION['Session_ID'];
-        $blogs      = $blog->FindByID($id);
+        $blog      = $blogs->FindByID($id);
         $image      = "";
-        $check_blog = ""; // ham de kiem tra blog co ton tai hay khong
-        while ($row = mysqli_fetch_object($blogs)) {
-            $image      = $row->link;
-            $User_id    = $row->user_id;
-            $checks     = $row->title;
-        }
-//           echo $id." ".$user_id . " " . $image ." ". $checks . " ";
-//        if(!empty($checks)){
-//            echo "dung";
-//        }else{
-//            echo "sai";
-//        }
+        $user_id_blog = $blog['id'];
+        $checks = $blog['title'];
+        $image = $blog['link'];
+
         // kiem tra bai viet co tồn tại hay không
         if (!empty($checks)) {
             // kiem tra nguoi dang nhap va nguoi tao ra bai viet
-            if($user_id != $User_id){
+            if($user_id != $user_id_blog){
                 $_SESSION['Message_Errors'] = "Bạn không phải chủ bài viết";
                 header('Location: /phpmvc/Blogcontroller/index');
                 exit();

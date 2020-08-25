@@ -2,13 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3843927b-20e1-4b99-b2fd-3891981b0e7d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/mvc/Views/register.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mvc/Controllers/Blogcontroller.php" beforeDir="false" afterPath="$PROJECT_DIR$/mvc/Controllers/Blogcontroller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvc/Models/blog.php" beforeDir="false" afterPath="$PROJECT_DIR$/mvc/Models/blog.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvc/Views/Detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/mvc/Views/Detail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvc/Views/layout/script.php" beforeDir="false" afterPath="$PROJECT_DIR$/mvc/Views/layout/script.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvc/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/mvc/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvc/Controllers/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/mvc/Controllers/home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvc/Models/user.php" beforeDir="false" afterPath="$PROJECT_DIR$/mvc/Models/user.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvc/Views/layout/Menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/mvc/Views/layout/Menu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvc/Views/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/mvc/Views/login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mvc/Views/master.php" beforeDir="false" afterPath="$PROJECT_DIR$/mvc/Views/master.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvc/Views/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/mvc/Views/update.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvc/core/createDB.php" beforeDir="false" afterPath="$PROJECT_DIR$/mvc/core/createDB.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +54,8 @@
       <workItem from="1597810822501" duration="13545000" />
       <workItem from="1597972154179" duration="10660000" />
       <workItem from="1598198827405" duration="2118000" />
-      <workItem from="1598229363637" duration="3457000" />
+      <workItem from="1598229363637" duration="15793000" />
+      <workItem from="1598321105065" duration="1581000" />
     </task>
     <servers />
   </component>
@@ -58,10 +63,10 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="429" y="262" width="731" height="400" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1597374007928">
+    <state x="269" y="262" width="1331" height="400" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1598322691602">
       <screen x="0" y="27" width="1600" height="873" />
     </state>
-    <state x="429" y="262" width="731" height="400" key="#com.intellij.fileTypes.FileTypeChooser/0.27.1600.873@0.27.1600.873" timestamp="1597374007928" />
+    <state x="269" y="262" width="1331" height="400" key="#com.intellij.fileTypes.FileTypeChooser/0.27.1600.873@0.27.1600.873" timestamp="1598322691602" />
     <state x="577" y="27" width="424" height="871" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1597670000897">
       <screen x="0" y="27" width="1600" height="873" />
     </state>
@@ -70,9 +75,13 @@
       <screen x="0" y="27" width="1600" height="873" />
     </state>
     <state x="550" y="221" key="FileChooserDialogImpl/0.27.1600.873@0.27.1600.873" timestamp="1598232237529" />
-    <state x="553" y="387" width="374" height="151" key="NewPhpFileDialog" timestamp="1597826000651">
+    <state x="553" y="387" width="374" height="151" key="NewPhpFileDialog" timestamp="1598241326794">
       <screen x="0" y="27" width="1600" height="873" />
     </state>
-    <state x="553" y="387" width="374" height="151" key="NewPhpFileDialog/0.27.1600.873@0.27.1600.873" timestamp="1597826000651" />
+    <state x="553" y="387" width="374" height="151" key="NewPhpFileDialog/0.27.1600.873@0.27.1600.873" timestamp="1598241326794" />
+    <state x="100" y="127" width="1400" height="673" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1598253049974">
+      <screen x="0" y="27" width="1600" height="873" />
+    </state>
+    <state x="100" y="127" width="1400" height="673" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.27.1600.873@0.27.1600.873" timestamp="1598253049974" />
   </component>
 </project>

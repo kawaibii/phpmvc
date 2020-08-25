@@ -17,22 +17,27 @@
             <div class="module module-login span4 offset4">
 
                 <?php
-                    if(isset($_SESSION['Error_Login'])){
-                        ?>
-                        <div class="alert alert-error">
-                            <?php   echo $_SESSION['Error_Login'];
-                            unset($_SESSION['Error_Login']) ?>
-                        </div>
-                   <?php
-                    }
-
+                if(isset($_SESSION['Error_Login'])){
                     ?>
+                    <div class="alert alert-error">
+                        <?php   echo $_SESSION['Error_Login'];
+                        unset($_SESSION['Error_Login']) ?>
+                    </div>
+                    <?php
+                }
 
-                <form class="form-vertical" method="post" action="/phpmvc/UserController/login">
+                ?>
+
+                <form class="form-vertical" method="post" action="/phpmvc/UserController/dangky">
                     <div class="module-head">
-                        <h3>Sign In</h3>
+                        <h3>Đăng kí</h3>
                     </div>
                     <div class="module-body">
+                        <div class="control-group">
+                            <div class="controls row-fluid">
+                                <input class="span12" type="text" id="inputEmail" placeholder="fullname" name="name" required>
+                            </div>
+                        </div>
                         <div class="control-group">
                             <div class="controls row-fluid">
                                 <input class="span12" type="email" id="inputEmail" placeholder="Email" name="email" required>
@@ -43,13 +48,16 @@
                                 <input class="span12" type="password" id="inputPassword" placeholder="Password" name="password" required>
                             </div>
                         </div>
-                            <p>Bạn chưa có tài khoản <a href="/phpmvc/home/register">click me?</a> </p>
-
+                        <div class="control-group">
+                            <div class="controls row-fluid">
+                                <input class="span12" type="password" id="inputPassword" placeholder=" Repassword" name="repassword" required>
+                            </div>
+                        </div>
                     </div>
                     <div class="module-foot">
                         <div class="control-group">
                             <div class="controls clearfix">
-                                <button type="submit" class="btn btn-primary pull-right">Login</button>
+                                <button type="submit" class="btn btn-primary pull-right">Đăng ký</button>
                                 <label class="checkbox">
                                     <input type="checkbox" name ="remember"> Remember me
                                 </label>
