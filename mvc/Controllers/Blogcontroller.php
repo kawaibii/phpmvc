@@ -24,6 +24,7 @@ class blogcontroller extends controller
     public function edit($id){
             $blog      = $this->model("blog");
            $data      = $blog->FindByID($id);
+
          $this->view("update",$data);
 
     }
@@ -47,50 +48,20 @@ class blogcontroller extends controller
         $blog      = $this->model("blog");
         $title      = $_POST['title'];
         $content   = $_POST['content'];
-        $allowfiletype = array('jpg', 'png', 'jpeg', 'gif');
-        $user_id  = 1;
+        $user_id  = $_SESSION['Session_ID'] ;
 
 
        $error = array(
-        'success'=> '',
         'error' => '',
         'title' => '',
-        'content' => '',
-        'user_id'=>'',
-        'fileUpload'=>''
-
         );
 
-        $pattern = "/^[A-Za-z0-9_]/";
+      
 
-        if ($content=="") {
-            $error['content'] = "content không được bỏ trống ";
-            $error['error'] = "1";
-        }
-        if(!preg_match($pattern,$title)){
-            $error['title'] = "title không được chứa kí tự đặc biệt  ";
-            $error['error'] = "1";
-        }
-        if ($title=="") {
-            $error['title'] = "Title không được bỏ trống ";
-            $error['error'] = "1";
-        }
         $findblog = $blog->FindByTitle($title);
         if($findblog!=null){
             $error['title'] = "title đã tồn tại vui lòng nhập mới ";
             $error['error'] = "1";
-        }
-        if(!isset($_FILES['fileUpload'])){
-            $error['fileUpload'] = "file không được bỏ trống ";
-            $error['error'] = "1";
-        }else {
-            $filePath = $_FILES['fileUpload']['name'];
-            $filetype = pathinfo($filePath, PATHINFO_EXTENSION);
-               if (!in_array($filetype,$allowfiletype )) {
-                $error['fileUpload'] = "file được upload không phải là ảnh ";
-                $error['error'] = "1";
-
-            }
         }
         if ($error['error']!="1") {
             $time = time();
@@ -98,7 +69,8 @@ class blogcontroller extends controller
                 move_uploaded_file($_FILES['fileUpload']['tmp_name'],$direct . $_FILES['fileUpload']['name'].$time);
                 $link = $_FILES['fileUpload']['name'].$time;
 
-            $ins = $blog->Insert($title,$content,$user_id,$link);
+           $blog->Insert($title,$content,$user_id,$link);
+            $_SESSION['Message_Success']= "Thêm thành công blog  "; 
 
         }
 
@@ -115,53 +87,27 @@ class blogcontroller extends controller
         $content   = $_POST['content'];
         $link = $_POST['link'];
         $id = $_POST['id'];
-        $allowfiletype = array('jpg', 'png', 'jpeg', 'gif');
-        $user_id  = 1;
+        $user_id  = $_SESSION['Session_ID'] ;
 
 
-       $error = array(
-        'success'=> '',
-        'error' => '',
+       $error = array( 
         'title' => '',
-        'content' => '',
-        'user_id'=>'',
-        'fileUpload'=>'',
-        'id'=>$id
+        'error' => '',
+
 
         );
 
-        $pattern = "/^[A-Za-z0-9_]/";
 
-        if ($content=="") {
-            $error['content'] = "content không được bỏ trống ";
+        $findblog = $blog->FindByTitle($title);
+        if($findblog!=null&& $findblog['id']!=$id){
+            $error['title'] = "title đã tồn tại vui lòng nhập mới ";
             $error['error'] = "1";
         }
-        if(!preg_match($pattern,$title)){
-            $error['title'] = "title không được chứa kí tự đặc biệt  ";
-            $error['error'] = "1";
-        }
-        if ($title=="") {
-            $error['title'] = "Title không được bỏ trống ";
-            $error['error'] = "1";
-        }
-        // $findblog = $blog->FindByTitle($title);
-        // if($findblog!=null){
-        //     $error['title'] = "title đã tồn tại vui lòng nhập mới ";
-        //     $error['error'] = "1";
-        // }
-        if(isset($_FILES['fileUpload'])){
 
-            $filePath = $_FILES['fileUpload']['name'];
-            $filetype = pathinfo($filePath, PATHINFO_EXTENSION);
-               if (!in_array($filetype,$allowfiletype )) {
-                $error['fileUpload'] = "file được upload không phải là ảnh ";
-                $error['error'] = "1";
-
-
-            }
-        }
         if ($error['error']!="1") {
+            $link2= $link;
             if (isset($_FILES['fileUpload'])) {
+
 
                 $time = time();
                 $direct = $_SERVER['DOCUMENT_ROOT']."/phpmvc/mvc/public/images/";
@@ -172,7 +118,8 @@ class blogcontroller extends controller
             }
 
 
-           $ins = $blog->Update($title,$content,$user_id,$link2,$id);
+          $blog->Update($title,$content,$user_id,$link2,$id);
+           $_SESSION['Message_Success']= "Sửa thành công blog  "; 
 
         }
 
@@ -197,7 +144,7 @@ class blogcontroller extends controller
         $user_id    = $_SESSION['Session_ID'];
         $blog      = $blogs->FindByID($id);
         $image      = "";
-        $user_id_blog = $blog['id'];
+        $user_id_blog = $blog['user_id'];
         $checks = $blog['title'];
         $image = $blog['link'];
 
@@ -209,10 +156,11 @@ class blogcontroller extends controller
                 header('Location: /phpmvc/Blogcontroller/index');
                 exit();
             }
-            $check = $blog->Delete($id, $user_id);
+            $check = $blogs->Delete($id, $user_id);
             if ($check) {
-                if (file_exists("./mvc/public/images/" . $image)) {
-                    unlink("./mvc/public/images/" . $image);
+                $direct = $_SERVER['DOCUMENT_ROOT']."/phpmvc/mvc/public/images/";
+                if (file_exists($direct . $image)) {
+                    unlink($direct . $image);
                 }
                 $_SESSION['Message_Success'] = "Bạn đã xóa thành công";
                 header("Location: /phpmvc/Blogcontroller/index");

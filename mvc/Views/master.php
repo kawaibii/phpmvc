@@ -92,7 +92,7 @@
                                         <?php echo $row->name; ?>
                                     </td>
                                     <td class="center">
-                                        <a href="/phpmvc/Blogcontroller/show/<?php echo $row->id; ?>"><button class ="alert alert-danger">Chi tiết</button></a>
+                                        <a href="/phpmvc/Blogcontroller/show/<?php echo $row->id; ?>"><button class ="alert alert-success">Chi tiết</button></a>
                                         <a href="/phpmvc/Blogcontroller/edit/<?php echo $row->id; ?>"><button class="btn btn-block">Sửa</button></a>
                                         <a href="#"><button data-url="/phpmvc/Blogcontroller/destroy/<?php echo $row->id; ?>" onclick="show(this)" data-title="<?php echo $row->title;?>" class="btn btn-block">Xóa</button></a>
                                     </td>
