@@ -60,7 +60,7 @@
                                    <div class="control-group">
                                        <label class="control-label" for="basicinput">Tiêu đề bài viết</label>
                                        <div class="controls">
-                                           <input type="text" id="title" placeholder="Type something here..." class="span8" name="title" >
+                                           <input type="text" id="title" placeholder="Type something here..." class="span8" name="title" required="">
                                             <div id="showerrortitle" class="alert-error"></div>
                                        </div>
                                    </div>
@@ -68,7 +68,7 @@
                                    <div class="control-group">
                                        <label class="control-label" for="basicinput">Hình ảnh</label>
                                        <div class="controls">
-                                           <input data-title="A tooltip for the input" type="file"  class="span8 tip" name="fileUpload" id="fileUpload">
+                                           <input data-title="A tooltip for the input" type="file"  class="span8 tip" name="fileUpload" id="fileUpload" required >
                                             <div id="showerrorfileUbload" class="alert-error"></div>
                                        </div>
                                    </div>
@@ -108,13 +108,56 @@
 
         <script language="javascript">
             $('form').submit(function (){
-              let img = $(".fileUpload");
+                $('#showerrortitle').html('');
+                $('#showerrorfileUbload').html('');
+                $('#showerrorcontent').html('');
+                $('#success').html('');
+                var error = "";
+
+              var specialChars = "<>@!#$%^&*()_+[]{}?:;|'\"\\,./~`-=";
+              var checkForSpecialChar = function(string){
+               for(i = 0; i < specialChars.length;i++){
+                 if(string.indexOf(specialChars[i]) > -1){
+                     return true
+                  }
+               }
+               return false;
+              }
+              var title = $('#title').val();
+              if(checkForSpecialChar(title)){
+                 $('#showerrortitle').html('title không được chứa kí tự đăcS biệt S');
+                error = "1";
+              } 
+
+              var content = CKEDITOR.instances.editor1.getData();
+              var contentReplace  = content.replaceAll('&nbsp;','');
+              var contentReplaceHtml = contentReplace.replace(/<(?!br\s*\/?)[^>]+>/g, '');
+              console.log(contentReplaceHtml);
+              if(CKEDITOR.instances.editor1.getData()==""|| contentReplaceHtml.trim()==""){
+                 $('#showerrorcontent').html('content không được bỏ trống ');
+                error = "1";
+              }
+              var fileUpload =  
+                document.getElementById('fileUpload'); 
+              
+            var filePath = fileUpload.value; 
+             var filetype =  
+                    /(\.jpg|\.jpeg|\.png|\.gif)$/i; 
+              
+            if (!filetype.exec(filePath)) { 
+               $('#showerrorfileUbload').html('file không phải là ảnh  ');
+                error= "1";
+            }  
+
+            if(error!=""){return false}
+
+
+
                var form = new FormData();
                form.append("fileUpload", $('input[type=file]')[0].files[0]);
               form.append("title", $('#title').val());
               form.append("content", CKEDITOR.instances.editor1.getData());
-  
-                  // console.log(form);
+
        
                  $('#showerror').html('');
                   $.ajax({
@@ -126,48 +169,20 @@
             data: form,
         success : function (result)
         {
-            // Kiểm tra xem thông tin gửi lên có bị lỗi hay không
-            // Đây là kết quả trả về từ file do_validate.php
-            // if (!result.hasOwnProperty('error') || result['error'] != 'success')
-            // {
-            //     alert('Có vẻ như bạn đang hack website của tôi');
-            //     return false;
-            // }
+
             data = JSON.parse(result);
             var errortitle = '';
-            var errorfileUpload = '';
-            var errorcontent = '';
-            
-            // Lấy thông tin lỗi username
-            // console.log($.trim(data.fileUpload));
             if ($.trim(data.title) != ''){
                 errortitle += data.title ;
              
             }
- 
-            // Lấy thông tin lỗi email
-            if ($.trim(data.content) != ''){
-                errorcontent += data.content;
-                  // $('#showerror').append(html);
-            }
-             if ($.trim(data.fileUpload) != ''){
-                errorfileUpload += data.fileUpload;
-                 // console.log(html);
-            }
- 
-            // Cuối cùng kiểm tra xem có lỗi không
-            // Nếu có thì xuất hiện lỗi
             if ($.trim(data.error)!= ''){
                 $('#showerrortitle').html(errortitle);
-                $('#showerrorfileUbload').html(errorfileUpload);
-                $('#showerrorcontent').html(errorcontent);
+        
             }
             else {
-                $('#showerrortitle').html('');
-                $('#showerrorfileUbload').html('');
-                $('#showerrorcontent').html('');
-                $('#success').html('');
-                $('#success').html('Thêm thành công');
+         
+               window.location.href = "/phpmvc/Blogcontroller/index";
             }
         }
     });

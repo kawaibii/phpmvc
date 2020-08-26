@@ -11,7 +11,7 @@ class blog extends connectDB
         return $data;
     }
     public function FindByID($id){
-        $sql = "SELECT b.id,b.title,b.link, b.content, u.name FROM blog AS b
+        $sql = "SELECT b.id,b.title,b.link, b.content, u.name , b.user_id FROM blog AS b
                 INNER JOIN user AS u ON u.id = b.user_id
                 WHERE b.id = '$id'
         ";
@@ -24,6 +24,7 @@ class blog extends connectDB
         $blog['content']   = $row->content;
         $blog['link'] = $row->link;
         $blog['name'] = $row->name;
+        $blog['user_id'] = $row->user_id;
          }
         return $blog;
     }
