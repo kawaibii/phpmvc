@@ -59,7 +59,7 @@ class user extends connectDB
         return $user;
     }
     function findbyRememberme($data){
-        $sql = "SELECT * FROM user WHERE email = '$data' LIMIT 1";
+        $sql = "SELECT * FROM user WHERE remember_me = '$data'";
         $data = mysqli_query($this->connect, $sql);
         $user = array();
         while ($row = mysqli_fetch_object($data)){
