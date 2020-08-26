@@ -4,6 +4,8 @@
     <list default="true" id="3843927b-20e1-4b99-b2fd-3891981b0e7d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mvc/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/mvc/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvc/Models/user.php" beforeDir="false" afterPath="$PROJECT_DIR$/mvc/Models/user.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvc/core/connectDB.php" beforeDir="false" afterPath="$PROJECT_DIR$/mvc/core/connectDB.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

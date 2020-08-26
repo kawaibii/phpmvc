@@ -103,7 +103,7 @@ class UserController extends controller{
             header('Location:/phpmvc/home/register');
             exit();
         }
-        if (count($data) < 8) {
+        if (strlen($data) > 8) {
             # code...
             $_SESSION['Error_Login'] = "Mật khẩu phải dài hơn 8 kí tự";
             header('Location:/phpmvc/home/register');
