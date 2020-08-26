@@ -110,5 +110,13 @@ class UserController extends controller{
             exit();
         }
     }
+    public function valiatorEmail($data){
+        $regex = "/([a-z0-9_]+|[a-z0-9_]+\.[a-z0-9_]+)@(([a-z0-9]|[a-z0-9]+\.[a-z0-9]+)+\.([a-z]{2,4}))/i";
+        if(preg_match($regex, $data)) {
+            $_SESSION['Error_Login'] = "Email phải đúng định dạng";
+            header('Location:/phpmvc/home');
+            exit();
+        }
+    }
 
 }

@@ -52,9 +52,9 @@
                            <div class="content">
                                <div class="col-sm-4">
                                 <h1> <div id="success" class="alert-success"></div></h1>
-                               
+
                               </div>
-                                                     
+
 
                                <form class="form-horizontal row-fluid"  method="POST" enctype="multipart/form-data" action="http://localhost/phpmvc/Blogcontroller/createblog">
                                    <div class="control-group">
@@ -113,7 +113,7 @@
                 $('#showerrorcontent').html('');
                 $('#success').html('');
                 var error = "";
-
+                // validator du lieu
               var specialChars = "<>@!#$%^&*()_+[]{}?:;|'\"\\,./~`-=";
               var checkForSpecialChar = function(string){
                for(i = 0; i < specialChars.length;i++){
@@ -127,7 +127,7 @@
               if(checkForSpecialChar(title)){
                  $('#showerrortitle').html('title không được chứa kí tự đăcS biệt S');
                 error = "1";
-              } 
+              }
 
               var content = CKEDITOR.instances.editor1.getData();
               var contentReplace  = content.replaceAll('&nbsp;','');
@@ -137,32 +137,31 @@
                  $('#showerrorcontent').html('content không được bỏ trống ');
                 error = "1";
               }
-              var fileUpload =  
-                document.getElementById('fileUpload'); 
-              
-            var filePath = fileUpload.value; 
-             var filetype =  
-                    /(\.jpg|\.jpeg|\.png|\.gif)$/i; 
-              
-            if (!filetype.exec(filePath)) { 
+              var fileUpload =
+                document.getElementById('fileUpload');
+
+            var filePath = fileUpload.value;
+             var filetype = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+
+            if (!filetype.exec(filePath)) {
                $('#showerrorfileUbload').html('file không phải là ảnh  ');
                 error= "1";
-            }  
+            }
 
             if(error!=""){return false}
 
 
-
+                // tao du lieu de gui ajax
                var form = new FormData();
                form.append("fileUpload", $('input[type=file]')[0].files[0]);
               form.append("title", $('#title').val());
               form.append("content", CKEDITOR.instances.editor1.getData());
 
-       
+                // gui du lieu
                  $('#showerror').html('');
                   $.ajax({
             type: "POST",
-            url: "http://localhost/phpmvc/Blogcontroller/createblog",
+            url: "/phpmvc/Blogcontroller/createblog",
             processData: false,
             mimeType: "multipart/form-data",
             contentType: false,
@@ -174,19 +173,19 @@
             var errortitle = '';
             if ($.trim(data.title) != ''){
                 errortitle += data.title ;
-             
+
             }
             if ($.trim(data.error)!= ''){
                 $('#showerrortitle').html(errortitle);
-        
+
             }
             else {
-         
+
                window.location.href = "/phpmvc/Blogcontroller/index";
             }
         }
     });
- 
+
                 return false;
             });
         </script>

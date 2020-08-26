@@ -24,9 +24,16 @@ class blogcontroller extends controller
     public function edit($id){
             $blog      = $this->model("blog");
            $data      = $blog->FindByID($id);
+           $user_id = $_SESSION['Session_ID'];
            if($data!=null){
+               if($user_id != $data['user_id']){
+                   header("Location: /phpmvc/Blogcontroller/index");
+                   $_SESSION['Message_Errors'] = "Bạn không có quyền để sửa bài viết";
+                   exit();
+               }
             $this->view("update",$data);
-           }else  $this->view("404notfound",[]);
+           }
+           $this->view("404notfound",[]);
 
 
     }
@@ -58,7 +65,7 @@ class blogcontroller extends controller
         'title' => '',
         );
 
-      
+
 
         $findblog = $blog->FindByTitle($title);
         if($findblog!=null){
@@ -68,11 +75,12 @@ class blogcontroller extends controller
         if ($error['error']!="1") {
             $time = time();
                 $direct = $_SERVER['DOCUMENT_ROOT']."/phpmvc/mvc/public/images/";
-                move_uploaded_file($_FILES['fileUpload']['tmp_name'],$direct . $_FILES['fileUpload']['name'].$time);
-                $link = $_FILES['fileUpload']['name'].$time;
+                move_uploaded_file($_FILES['fileUpload']['tmp_name'],$direct . $time . $_FILES['fileUpload']['name']);
+                $link = $time . $_FILES['fileUpload']['name'];
+               // echo $title . $content . $user_id . $link;
 
            $blog->Insert($title,$content,$user_id,$link);
-            $_SESSION['Message_Success']= "Thêm thành công blog  "; 
+            $_SESSION['Message_Success']= "Thêm thành công blog  ";
 
         }
 
@@ -92,13 +100,10 @@ class blogcontroller extends controller
         $user_id  = $_SESSION['Session_ID'] ;
 
 
-       $error = array( 
+       $error = array(
         'title' => '',
         'error' => '',
-
-
         );
-
 
         $findblog = $blog->FindByTitle($title);
         if($findblog!=null&& $findblog['id']!=$id){
@@ -113,15 +118,17 @@ class blogcontroller extends controller
 
                 $time = time();
                 $direct = $_SERVER['DOCUMENT_ROOT']."/phpmvc/mvc/public/images/";
+                if(file_exists($direct . $link)){
                  unlink($direct.$link);
-                move_uploaded_file($_FILES['fileUpload']['tmp_name'],$direct . $_FILES['fileUpload']['name'].$time);
-                $link2 = $_FILES['fileUpload']['name'].$time;
+                }
+                move_uploaded_file($_FILES['fileUpload']['tmp_name'],$direct . $time . $_FILES['fileUpload']['name']);
+                $link2 = $time . $_FILES['fileUpload']['name'];
 
             }
 
 
           $blog->Update($title,$content,$user_id,$link2,$id);
-           $_SESSION['Message_Success']= "Sửa thành công blog  "; 
+           $_SESSION['Message_Success']= "Sửa thành công blog  ";
 
         }
 
@@ -136,7 +143,14 @@ class blogcontroller extends controller
 
         $blogs  = $this->model("blog");
         $data   = $blogs->FindByID($id);
-        $this->view("Detail",$data);
+//        var_dump($data);
+        if(!empty($data)) {
+            $this->view("Detail", $data);
+        }else {
+            header("Location: /phpmvc/Blogcontroller/index");
+            $_SESSION['Message_Errors'] = "Bài viết không tồn tại";
+            exit();
+        }
     }
 
 
@@ -145,6 +159,11 @@ class blogcontroller extends controller
         $blogs       = $this->model("blog");
         $user_id    = $_SESSION['Session_ID'];
         $blog      = $blogs->FindByID($id);
+        if(empty($blog)){
+            header("Location: /phpmvc/Blogcontroller/index");
+            $_SESSION['Message_Errors'] = "Bài viết không tồn tại";
+            exit();
+        }
         $image      = "";
         $user_id_blog = $blog['user_id'];
         $checks = $blog['title'];

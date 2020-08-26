@@ -37,7 +37,7 @@ class blog extends connectDB
         $blog['id']     = $row->id;
         $blog['title']  = $row->title;
         $blog['content']   = $row->content;
-        // $blog['user_id'] = $row->user_id;
+        $blog['user_id'] = $row->user_id;
         $blog['link'] = $row->link;
         }
         return $blog;
