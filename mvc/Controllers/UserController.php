@@ -18,7 +18,7 @@ class UserController extends controller{
             $_SESSION['Session_Email']  = $user['email'];
             // tao cookie
             if($remember == "on"){
-                setcookie('CHECK_LOGIN', $password, time() + 30*60, "/");
+                setcookie('CHECK_LOGIN', $user['remember_me'], time() + 30*60, "/");
             }
             header('Location: /phpmvc/Blogcontroller/index');
             exit();

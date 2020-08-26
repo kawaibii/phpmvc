@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3843927b-20e1-4b99-b2fd-3891981b0e7d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/mvc/Views/register.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvc/Controllers/Blogcontroller.php" beforeDir="false" afterPath="$PROJECT_DIR$/mvc/Controllers/Blogcontroller.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mvc/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/mvc/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvc/Controllers/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/mvc/Controllers/home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvc/Models/user.php" beforeDir="false" afterPath="$PROJECT_DIR$/mvc/Models/user.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvc/Views/layout/Menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/mvc/Views/layout/Menu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvc/Views/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/mvc/Views/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvc/Views/master.php" beforeDir="false" afterPath="$PROJECT_DIR$/mvc/Views/master.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvc/core/createDB.php" beforeDir="false" afterPath="$PROJECT_DIR$/mvc/core/createDB.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +25,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../edmin/code/index.html" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -55,7 +46,9 @@
       <workItem from="1597972154179" duration="10660000" />
       <workItem from="1598198827405" duration="2118000" />
       <workItem from="1598229363637" duration="15793000" />
-      <workItem from="1598321105065" duration="1581000" />
+      <workItem from="1598321105065" duration="2181000" />
+      <workItem from="1598403883977" duration="1262000" />
+      <workItem from="1598411251594" duration="2143000" />
     </task>
     <servers />
   </component>
@@ -71,10 +64,10 @@
       <screen x="0" y="27" width="1600" height="873" />
     </state>
     <state x="577" y="27" width="424" height="871" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.27.1600.873@0.27.1600.873" timestamp="1597670000897" />
-    <state x="550" y="221" key="FileChooserDialogImpl" timestamp="1598232237529">
+    <state x="550" y="221" key="FileChooserDialogImpl" timestamp="1598405631530">
       <screen x="0" y="27" width="1600" height="873" />
     </state>
-    <state x="550" y="221" key="FileChooserDialogImpl/0.27.1600.873@0.27.1600.873" timestamp="1598232237529" />
+    <state x="550" y="221" key="FileChooserDialogImpl/0.27.1600.873@0.27.1600.873" timestamp="1598405631530" />
     <state x="553" y="387" width="374" height="151" key="NewPhpFileDialog" timestamp="1598241326794">
       <screen x="0" y="27" width="1600" height="873" />
     </state>
