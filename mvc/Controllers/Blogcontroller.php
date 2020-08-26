@@ -24,8 +24,10 @@ class blogcontroller extends controller
     public function edit($id){
             $blog      = $this->model("blog");
            $data      = $blog->FindByID($id);
+           if($data!=null){
+            $this->view("update",$data);
+           }else  $this->view("404notfound",[]);
 
-         $this->view("update",$data);
 
     }
 

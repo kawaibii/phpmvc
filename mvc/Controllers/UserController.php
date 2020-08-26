@@ -33,7 +33,7 @@ class UserController extends controller{
       $data['email'] = $_POST['email'];
       $data['password'] = $_POST['password'];
       $data['repassword'] = $_POST['repassword'];
-      $data['remember_me'] = md5($_POST['password']);
+      $data['remember_me'] = md5(time() . $_POST['password']);
       var_dump($data);
       $user = $this->model("user");
         $checkEmail = $user->getemail($data['email']);
@@ -100,6 +100,12 @@ class UserController extends controller{
         }
         if($data = ''){
             $_SESSION['Error_Login'] = "Mật khẩu không được bỏ trống ";
+            header('Location:/phpmvc/home/register');
+            exit();
+        }
+        if (count($data) < 8) {
+            # code...
+            $_SESSION['Error_Login'] = "Mật khẩu phải dài hơn 8 kí tự";
             header('Location:/phpmvc/home/register');
             exit();
         }
