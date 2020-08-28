@@ -4,7 +4,7 @@
 class blog extends connectDB
 {
     public function All(){
-        $sql = "SELECT b.id,b.title,b.link,u.name FROM blog AS b
+        $sql = "SELECT b.id,b.title,b.link, b.user_id, u.name FROM blog AS b
                 INNER JOIN user AS u ON u.id = b.user_id
     ";
         $data = mysqli_query($this->connect,$sql);

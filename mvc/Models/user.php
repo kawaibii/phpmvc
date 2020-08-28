@@ -20,6 +20,15 @@ class user extends connectDB
         return $user;
 
     }
+
+    function updateOneValue($data, $id){
+        $sql = "UPDATE user SET remember_me = '$data' WHERE id = '$id'";
+        //$sql = "UPDATE blog SET title='$title', content='$content', user_id='$user_id', link='$link' WHERE id='$id'";
+//        die($sql);
+        $check = mysqli_query($this->connect, $sql);
+        return $check;
+    }
+
     function save($data){
         $name           = $data['name'];
         $email          = $data['email'];

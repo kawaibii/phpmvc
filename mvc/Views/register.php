@@ -58,9 +58,6 @@
                         <div class="control-group">
                             <div class="controls clearfix">
                                 <button type="submit" class="btn btn-primary pull-right">Đăng ký</button>
-                                <label class="checkbox">
-                                    <input type="checkbox" name ="remember"> Remember me
-                                </label>
                             </div>
                         </div>
                     </div>
