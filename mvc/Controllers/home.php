@@ -8,7 +8,8 @@ class home extends controller {
         {
             $user = $this->model("user");
             $myuser = $user->findbyRememberme($_COOKIE['CHECK_LOGIN']);
-          //  var_dump($myuser);
+//            var_dump($myuser);
+//            die();
             if(!empty($myuser)) {
                 $_SESSION['Session_ID']     = $myuser['id'];
                 $_SESSION['Session_Name']   = $myuser['name'];
@@ -16,6 +17,10 @@ class home extends controller {
                 header('Location: /phpmvc/Blogcontroller/index');
                 exit();
             }
+        }
+        elseif(isset($_SESSION['Session_Name'])){
+            header('Location: /phpmvc/Blogcontroller/index');
+            exit();
         }
     }
 

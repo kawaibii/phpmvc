@@ -27,6 +27,17 @@
                     }
 
                     ?>
+                <?php
+                if(isset($_SESSION['Message_Success'])){
+                    ?>
+                    <div class="alert alert-success">
+                        <?php   echo $_SESSION['Message_Success'];
+                        unset($_SESSION['Message_Success']) ?>
+                    </div>
+                    <?php
+                }
+
+                ?>
 
                 <form class="form-vertical" method="post" action="/phpmvc/UserController/login">
                     <div class="module-head">
